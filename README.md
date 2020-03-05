@@ -1,1 +1,2 @@
-# WebProg-beadand-
+# WebProg-beadando
+Ötlet: Rubik kocka webshop
