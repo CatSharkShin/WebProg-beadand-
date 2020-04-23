@@ -30,7 +30,7 @@ function UserLogin($email, $password) {
 }
 
 function UserRegister($email, $password, $fname, $lname) {
-	$query = "SELECT id FROM users email = :email";
+	$query = "SELECT id FROM users WHERE email = :email";
 	$params = [ ':email' => $email ];
 
 	require_once DATABASE_CONTROLLER;
@@ -50,4 +50,31 @@ function UserRegister($email, $password, $fname, $lname) {
 	return false;
 }
 
+function userEdit($id, $fname, $lname, $email, $permission) {
+	$query = "SELECT id FROM users WHERE email = :email AND NOT id = :id";
+	$params = [ ':email' => $email,
+				':id' => $id
+	 ];
+
+	require_once DATABASE_CONTROLLER;
+	$record = getRecord($query, $params);
+	if(empty($record)) {
+		$query = "UPDATE users SET first_name = :fname, last_name = :lname, email = :email, permission = :permission WHERE id = :id";
+		$params = [
+			":fname" => $fname,
+			":lname" => $lname,
+			":email" => $email,
+			":permission" => $permission,
+			":id" => $id
+		];
+		return executeDML($query,$params);
+	} 
+	return false;
+}
+	function delUser($id){
+		require_once DATABASE_CONTROLLER;
+		$query = "DELETE FROM users WHERE id = :id";
+		$params = [ ':id' => $id];
+		return executeDML($query,$params);
+	}
 ?>

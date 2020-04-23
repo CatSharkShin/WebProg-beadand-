@@ -15,6 +15,8 @@ switch ($_GET['P']) {
 
 	case 'users': IsUserLoggedIn() ? require_once PROTECTED_DIR.'user/user_list.php' : header('Location: index.php'); break;
 
+	case 'products': IsUserLoggedIn() ? require_once PROTECTED_DIR.'user/products.php' : header('Location: index.php'); break;
+
 	default: require_once PROTECTED_DIR.'normal/404.php'; break;
 }
 

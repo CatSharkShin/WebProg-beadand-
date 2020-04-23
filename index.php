@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php require_once 'protected/config.php'; ?>
 <?php require_once USER_MANAGER; ?>
+<?php require_once PRODUCT_MANAGER; ?>
 
 <!DOCTYPE html>
 <html>
