@@ -1,24 +1,14 @@
 <?php 
-print_r($_SESSION['cart']);
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($_POST['add']){
       if(!isset($_POST['id']) || !isset($_POST['amount']))
         echo "Something went wrong. Please try again";
       if(!isset($_SESSION['cart']))
         $_SESSION['cart'] = array();
-      $found = false;
-      for($i = 0; $i < count($_SESSION['cart']); $i++){
-        if($_SESSION['cart'][$i]['id'] == $_POST['id']){
-          $_SESSION['cart'][$i]['amount'] = $_SESSION['cart'][$i]['amount'] + $_POST['amount'];
-          $found = true;
-          echo "Amount increased";
-        }
-      }
-      if(!$found){
-          array_push($_SESSION['cart'],[
-            'id' => $_POST['id'],
-            'amount' => $_POST['amount']
-          ]);
+      if(isset($_SESSION['cart'][$_POST['id']])){
+        $_SESSION['cart'][$_POST['id']] += $_POST['amount'];
+      }else{
+          $_SESSION['cart'][$_POST['id']] = $_POST['amount'];
           echo "Product added";
       }
 
@@ -61,7 +51,7 @@ print_r($_SESSION['cart']);
                 <strong><?=$p['type']?></strong>
               </td>
               <td>
-                <strong><?=$p['image']?></strong>
+                <strong><img style="max-height: 50px;" src="<?=IMAGES.$p['image'].".png"?>" alt="Nincs megadott kép"></strong>
               </td>
               <td>
                 <strong><?=$p['price']?></strong>
@@ -70,7 +60,7 @@ print_r($_SESSION['cart']);
                 <input class="form-control" type="number" min="1" name="amount" value="1">
               </td>
               <td>
-                <input type="submit" name="add" value="Add to Cart" class="btn btn-primary">
+                <input type="submit" name="add" value="Add to Cart" class="btn btn-success">
               </td>
             </tr>
           </form>

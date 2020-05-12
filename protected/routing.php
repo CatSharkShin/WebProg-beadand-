@@ -17,8 +17,15 @@ switch ($_GET['P']) {
 
 	case 'products': IsUserLoggedIn() ? require_once PROTECTED_DIR.'webshop/products.php' : header('Location: index.php'); break;
 
+	case 'ordermanager': IsUserLoggedIn() ? require_once PROTECTED_DIR.'webshop/ordermanager.php' : header('Location: index.php'); break;
+
+	case 'orders': IsUserLoggedIn() ? require_once PROTECTED_DIR.'webshop/orders.php' : header('Location: index.php'); break;
+
 	case 'webshop': require_once PROTECTED_DIR.'webshop/webshop.php'; break;
 
+	case 'orderresult': require_once PROTECTED_DIR.'webshop/orderresult.php'; break;
+
+	case 'cart': require_once PROTECTED_DIR.'webshop/cart.php'; break;
 	default: require_once PROTECTED_DIR.'normal/404.php'; break;
 }
 

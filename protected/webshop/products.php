@@ -132,12 +132,13 @@
 
               <td><input class="form-control" type="number" name="price" value="<?=$p['price'] ?>"></td>
               <td><input type="submit" name="save" value="Save" class="btn btn-primary"></td>
-              <td><input type="submit" name="delete" value="Delete" class="btn btn-primary"></td>
+              <td><input type="submit" name="delete" value="Delete" class="btn btn-danger"></td>
             </tr>
           </form>
         <?php endforeach;?>
       </tbody>
     </table>
+    <center><strong>You cannot delete products that are being ordered</strong></center>
   <?php endif; ?>
   <style type="text/css">
     table{

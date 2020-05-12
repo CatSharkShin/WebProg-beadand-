@@ -6,6 +6,7 @@ define('PROTECTED_DIR', BASE_DIR.'protected/');
 define('DATABASE_CONTROLLER', PROTECTED_DIR.'database.php');
 define('USER_MANAGER', PROTECTED_DIR.'userManager.php');
 define('PRODUCT_MANAGER', PROTECTED_DIR.'productManager.php');
+define('IMAGES',PUBLIC_DIR.'images/');
 
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');

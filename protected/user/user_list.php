@@ -6,33 +6,33 @@
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['delete'])){
       if(!delUser($_POST['id'])){
-        echo "Sikertelen törlés";
+        echo "Delete failed";
       }else{
-        echo "Sikeres törlés";
+        echo "Delete was successful";
       }
     }else if(isset($_POST['save'])){
       $postData = [
       	'id' => $_POST['id'],
-		'fname' => $_POST['first_name'],
-		'lname' => $_POST['last_name'],
-		'email' => $_POST['email'],
-		'permission' => $_POST['permission']
-	];
+    		'fname' => $_POST['first_name'],
+    		'lname' => $_POST['last_name'],
+    		'email' => $_POST['email'],
+    		'permission' => $_POST['permission']
+    	];
 
-	if(empty($postData['fname']) || empty($postData['lname']) || empty($postData['email'])) {
-		echo "Missing information!";
-	} else if(!filter_var($postData['email'], FILTER_VALIDATE_EMAIL)) {
-		echo "Wrong email format!";
-	}else if($postData['permission'] < 0 || $postData['permission'] > 1){
-		echo "Incorrect permission level!";
-	}else if(!userEdit($postData['id'],$postData['fname'], $postData['lname'], $postData['email'], $postData['permission'])) {
-		echo "Edit failed!";
-	}
+    	if(empty($postData['fname']) || empty($postData['lname']) || empty($postData['email'])) {
+    		echo "Missing information!";
+    	} else if(!filter_var($postData['email'], FILTER_VALIDATE_EMAIL)) {
+    		echo "Wrong email format!";
+    	}else if($postData['permission'] < 0 || $postData['permission'] > 1){
+    		echo "Incorrect permission level!";
+    	}else if(!userEdit($postData['id'],$postData['fname'], $postData['lname'], $postData['email'], $postData['permission'])) {
+    		echo "Edit failed!";
+    	}
 
-	$postData['password'] = $postData['password1'] = "";
+    	$postData['password'] = $postData['password1'] = "";
 
-    }
-  }
+        }
+      }
  ?></center>
 
 <?php 
@@ -72,7 +72,7 @@
 
               <td><input type="submit" name="save" value="Save" class="btn btn-primary"></td>
 
-              <td><input type="submit" name="delete" value="Delete" class="btn btn-primary"></td>
+              <td><input type="submit" name="delete" value="Delete" class="btn btn-danger"></td>
             </tr>
           </form>
         <?php endforeach;?>
