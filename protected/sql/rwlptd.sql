@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Máj 12. 12:56
+-- Létrehozás ideje: 2020. Máj 13. 16:05
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.2
 
@@ -35,6 +35,16 @@ CREATE TABLE `orders` (
   `userid` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- A tábla adatainak kiíratása `orders`
+--
+
+INSERT INTO `orders` (`orderid`, `productid`, `amount`, `userid`) VALUES
+(36, 22, 1, 5),
+(37, 23, 1, 5),
+(38, 29, 1, 5),
+(39, 30, 4, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -56,7 +66,8 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `type`, `name`, `price`, `image`) VALUES
 (22, '3x3', 'Yuxin', 2000, 'r1'),
 (23, '4x4', 'Super wow', 3000, 'r2'),
-(29, '2x2', 'Huha cube', 3500, 'r3');
+(29, '2x2', 'Huha cube', 3500, 'r3'),
+(30, '4x4', 'asdd', 213213213, 'r2');
 
 -- --------------------------------------------------------
 
@@ -78,9 +89,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `permission`) VALUES
-(1, 'Norbert', 'Szucs', 'mail.norbert.szucs@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 1),
 (2, 'Elek', 'Teszt', 'Teszt@elek.com', '4b4b04529d87b5c318702bc1d7689f70b15ef4fc', 0),
-(3, '_', 'Szunnyadás', 'szunyi@gmail.com', '85136c79cbf9fe36bb9d05d0639c70c265c18d37', 1),
 (5, 'Palotai', 'Martini', 'catsharkshin@gmail.com', '2891baceeef1652ee698294da0e71ba78a2a4064', 1),
 (6, '_', 'adsdsafagdsf', 'szunyix@gmail.com', '2891baceeef1652ee698294da0e71ba78a2a4064', 1),
 (7, 'asd', 'asd', 'magyarpanda@gmail.com', '2891baceeef1652ee698294da0e71ba78a2a4064', 0);
@@ -117,19 +126,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `orderid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT a táblához `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Megkötések a kiírt táblákhoz
