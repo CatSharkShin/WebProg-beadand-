@@ -25,9 +25,9 @@
       }
     }else if(isset($_POST['delete'])){
         if(!delProduct($_POST['id'])){
-          echo "Sikertelen törlés";
+          echo "Delete failed";
         }else{
-          echo "Sikeres törlés";
+          echo "Delete successful";
         }
     }
     else if(isset($_POST['save'])){
@@ -44,9 +44,9 @@
       if(empty($postData['name']) || empty($postData['type']) || empty($postData['image']) || empty($postData['price'])){
         echo "All fields must be filled!";
       }else if(!editProduct($postData['id'],$postData['type'],$postData['name'],$postData['price'],$postData['image'])){
-        echo "Sikertelen szerkesztés";
+        echo "Edit failed";
       }else{
-        echo "Sikeres szerkesztés";
+        echo "Edit successful";
       }
     }
   }

@@ -45,7 +45,9 @@
         <?=$item['name']?>(<?=$cart[$item['id']]?>): <?=$item['price']*$cart[$item['id']]."Ft"?>
       </div>
     <?php endforeach ?>
-    <?php if(IsUserLoggedIn()): ?>
+    <?php if(!IsUserLoggedIn()): ?>
+      <strong>Login to be able to order</strong>
+    <?php else: ?>
       <form method="post">
         <button class="btn btn-success" type="submit" name="order">Order</button>
       </form>

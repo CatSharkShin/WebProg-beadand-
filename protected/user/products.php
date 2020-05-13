@@ -25,9 +25,9 @@
       }
     }else if(isset($_POST['delete'])){
         if(!delProduct($_POST['id'])){
-          echo "Sikertelen törlés";
+          echo "Delete failed";
         }else{
-          echo "Sikeres törlés";
+          echo "Delete successful";
         }
     }
     else if(isset($_POST['save'])){

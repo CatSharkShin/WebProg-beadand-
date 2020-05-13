@@ -1,1 +1,1 @@
-HOME
+"Here goes the promotion text"
